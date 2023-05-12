@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="380.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bengkel.pbo.controller.HomeController">
+    <Button fx:id="customerBtn" layoutX="48.0" layoutY="168.0" onAction="#handleButtonAction" prefHeight="82.0" prefWidth="138.0" text="Customer">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
+    <Button fx:id="barangBtn" layoutX="231.0" layoutY="168.0" onAction="#handleButtonAction" prefHeight="82.0" prefWidth="138.0" text="Barang">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
+    <Button fx:id="transaksiBtn" layoutX="411.0" layoutY="168.0" onAction="#handleButtonAction" prefHeight="82.0" prefWidth="138.0" text="Transaksi">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
+   <Label layoutX="48.0" layoutY="60.0" prefHeight="60.0" prefWidth="552.0" text="===== BENGKEL PBO MAKMUR ABADI =====">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="48.0" layoutY="277.0" prefHeight="60.0" prefWidth="564.0" text="===============================">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+</AnchorPane>
