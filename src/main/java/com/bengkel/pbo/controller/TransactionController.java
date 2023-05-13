@@ -166,7 +166,7 @@ public class TransactionController {
    
     @FXML
     protected void initialize() throws SQLException {
-        connector = new DataConnector("127.0.0.1", "bengkel", "root", "password");
+        connector = new DataConnector("127.0.0.1", "bengkel", "root", "@B6da58c7");
         
         mock();
         ItemList.setItems(serviceList);
@@ -262,11 +262,6 @@ public class TransactionController {
     }
     
     @FXML
-    private void showHistory() throws IOException {
-        App.setRoot("transactionHistory");
-    }
-    
-    @FXML
     private void addItem() throws IOException {
         
         DataConnector.RowEntry data = serviceMap.get(ItemList.getValue());
@@ -318,4 +313,24 @@ public class TransactionController {
         stage.show();
     }
 
+    public void showHistory(ActionEvent actionEvent) {
+        // buat objek Stage
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        // buat objek FXMLLoader untuk home.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("transactionHistory.fxml"));
+
+        // muat scene home.fxml
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // set scene pada stage
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

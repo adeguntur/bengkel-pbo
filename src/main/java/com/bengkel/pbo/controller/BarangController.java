@@ -140,7 +140,7 @@ public class BarangController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            connector = new DataConnector("localhost", "bengkel", "root", "password");
+            connector = new DataConnector("localhost", "bengkel", "root", "@B6da58c7");
             showData();
             TableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue != null) {

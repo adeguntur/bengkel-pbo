@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lib.DataConnector;
+import javafx.scene.control.TableView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,66 +27,46 @@ import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
 
-    @FXML
-    private TextField id_customer_field;
+    @FXML private TextField id_customer_field;
+    @FXML private TextField nama_customer_field;
+    @FXML private TextField no_telp_field;
+    @FXML private TextField merk_kendaraan_field;
+    @FXML private TextField plat_nomor_field;
 
-    @FXML
-    private TextField nama_customer_field;
+    @FXML private Button insertButton;
+    @FXML private Button resetButton;
+    @FXML private Button updateButton;
+    @FXML private Button deleteButton;
 
-    @FXML
-    private TextField no_telp_field;
+    @FXML private TableView<Customer> TableView;
 
-    @FXML
-    private TextField merk_kendaraan_field;
-
-    @FXML
-    private TextField plat_nomor_field;
-
-    @FXML
-    private Button insertButton;
-
-    @FXML
-    private Button resetButton;
-
-    @FXML
-    private Button updateButton;
-
-    @FXML
-    private Button deleteButton;
-
-    @FXML
-    private javafx.scene.control.TableView<Customer> TableView;
-
-    @FXML
-    private TableColumn<Customer, Integer> id_customer_column;
-
-    @FXML
-    private TableColumn<Customer, String> nama_customer_column;
-
-    @FXML
-    private TableColumn<Customer, String> no_telp_column;
-
-    @FXML
-    private TableColumn<Customer, String> merk_kendaraan_column;
-
-    @FXML
-    private TableColumn<Customer, String> plat_nomor_column;
+    @FXML private TableColumn<Customer, Integer> id_customer_column;
+    @FXML private TableColumn<Customer, String>  nama_customer_column;
+    @FXML private TableColumn<Customer, String>  no_telp_column;
+    @FXML private TableColumn<Customer, String>  merk_kendaraan_column;
+    @FXML private TableColumn<Customer, String>  plat_nomor_column;
 
     DataConnector connector;
 
     @FXML
     private void insertButton() throws IOException, SQLException {
-        connector.begin();
+        try{
+            connector.begin();
 
-        DataConnector.RowEntry data = new DataConnector.RowEntry("customer");
-        data.set("nama_customer", nama_customer_field.getText());
-        data.set("no_telp", no_telp_field.getText());
-        data.set("merk_kendaraan", merk_kendaraan_field.getText());
-        data.set("plat_nomor", plat_nomor_field.getText());
+            DataConnector.RowEntry data = new DataConnector.RowEntry("customer");
+            data.set("nama_customer", nama_customer_field.getText());
+            data.set("no_telp", no_telp_field.getText());
+            data.set("merk_kendaraan", merk_kendaraan_field.getText());
+            data.set("plat_nomor", plat_nomor_field.getText());
 
-        connector.persist(data);
-        connector.commit();
-
+            connector.persist(data);
+            connector.commit();
+        
+        } catch (SQLException e) {
+            connector.rollback();
+            throw e;
+        }
+       
         showData();
     }
 
@@ -147,7 +128,7 @@ public class CustomerController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            connector = new DataConnector("localhost", "bengkel", "root", "password");
+            connector = new DataConnector("localhost", "bengkel", "root", "@B6da58c7");
             showData();
             TableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue != null) {
