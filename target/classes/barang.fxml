@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="403.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bengkel.pbo.controller.BarangController">
+    <children>
+        <VBox layoutX="26.0" layoutY="87.0" spacing="15.0">
+            <children>
+                <Label text="ID Barang">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Nama Barang">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Harga Barang">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Stock">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <VBox layoutX="26.0" layoutY="24.0" prefHeight="42.0" prefWidth="1089.0" spacing="10.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="1122.0" text="====================  Data Barang ====================" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <HBox layoutX="26.0" layoutY="202.0" spacing="10.0" />
+        <TableView fx:id="TableView" layoutX="317.0" layoutY="87.0" prefHeight="283.0" prefWidth="798.0">
+            <columns>
+                <TableColumn fx:id="id_barang_column" prefWidth="96.0" text="ID" />
+                <TableColumn fx:id="nama_barang_column" prefWidth="330.0" text="Nama Barang" />
+                <TableColumn fx:id="harga_barang_column" minWidth="0.0" prefWidth="234.0" text="Harga Barang" />
+                <TableColumn fx:id="stock_column" prefWidth="137.0" text="Stock" />
+            </columns>
+        </TableView>
+        <Button fx:id="insertButton" layoutX="26.0" layoutY="240.0" mnemonicParsing="false" onAction="#insertButton" prefHeight="30.0" prefWidth="70.0" text="Insert" />
+        <Button fx:id="updateButton" layoutX="128.0" layoutY="240.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="70.0" text="Update" />
+        <Button fx:id="deleteButton" layoutX="224.0" layoutY="240.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="70.0" text="Delete" />
+        <TextField fx:id="id_barang_field" disable="true" editable="false" layoutX="149.0" layoutY="87.0" prefHeight="25.0" prefWidth="149.0" />
+        <TextField fx:id="nama_barang_field" layoutX="149.0" layoutY="122.0" prefHeight="25.0" prefWidth="149.0" />
+        <TextField fx:id="harga_barang_field" layoutX="149.0" layoutY="156.0" />
+        <TextField fx:id="stock_field" layoutX="149.0" layoutY="190.0" />
+        <Button fx:id="resetButton" layoutX="26.0" layoutY="294.0" mnemonicParsing="false" onAction="#resetButton" prefHeight="30.0" prefWidth="70.0" text="Reset" />
+      <Button fx:id="backButton" layoutX="128.0" layoutY="294.0" mnemonicParsing="false" onAction="#backButton" prefHeight="30.0" prefWidth="70.0" text="Home" />
+    </children>
+</AnchorPane>
